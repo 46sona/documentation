@@ -1,4 +1,4 @@
-name: Deploy Gitea (Docker Swarm)
+name: Deploy Gitea (Existing Setup)
 
 on:
   push:
@@ -13,7 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy Gitea Stack
+      - name: Deploy existing Gitea using Docker Compose
         run: |
-          docker stack deploy -c gitea-stack.yml gitea
+          docker compose down || true
+          docker compose up -d
+
 
