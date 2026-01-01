@@ -16,3 +16,4 @@ jobs:
       - name: Deploy Gitea Stack
         run: |
           docker stack deploy -c gitea-stack.yml gitea
+
